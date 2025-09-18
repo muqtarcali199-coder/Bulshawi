@@ -1,14 +1,9 @@
 let tasks = [];
 
-// Load tasks from localStorage if any
+// Load tasks from localStorage
 if(localStorage.getItem("tasks")) tasks = JSON.parse(localStorage.getItem("tasks"));
 
-// Save tasks to localStorage
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-// Add a new task
+// Add task (does NOT save automatically)
 function addTask() {
   const name = document.getElementById("taskName").value;
   const due = document.getElementById("taskDue").value;
@@ -21,9 +16,14 @@ function addTask() {
   }
 
   tasks.push({name, due, status, notes});
-  saveTasks();
   clearInputs();
   renderTasks();
+}
+
+// Save manually
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  alert("Tasks saved successfully!");
 }
 
 // Clear input fields
@@ -39,7 +39,7 @@ function renderTasks() {
   const container = document.getElementById("cardsContainer");
   container.innerHTML = "";
 
-  tasks.forEach((task, index) => {
+  tasks.forEach((task,index)=>{
     const card = document.createElement("div");
     card.className = "card " + task.status.toLowerCase().replace(" ", "-");
 
@@ -55,10 +55,9 @@ function renderTasks() {
 }
 
 // Delete task
-function deleteTask(index) {
-  if(confirm("Are you sure you want to delete this task?")) {
+function deleteTask(index){
+  if(confirm("Are you sure you want to delete this task?")){
     tasks.splice(index,1);
-    saveTasks();
     renderTasks();
   }
 }
