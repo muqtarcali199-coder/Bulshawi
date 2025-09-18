@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Time Management Dashboard</title>
+  <title>Stylish Time Management Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <div class="container">
-    <h1>⏳ Time Management Dashboard</h1>
+    <h1> Time Management Dashboard</h1>
 
     <!-- Add Task Form -->
     <div class="add-task">
@@ -20,16 +21,16 @@
         <option>Low</option>
       </select>
       <textarea id="taskNotes" placeholder="Task notes (optional)"></textarea>
-      <button id="addBtn">➕ Add Task</button>
+      <button id="addBtn"><i class="fas fa-plus"></i> Add Task</button>
     </div>
-
-    <!-- Task Cards Container -->
-    <div class="cards" id="cardsContainer"></div>
 
     <!-- Save Button -->
     <div class="save-container">
-      <button id="saveBtn">💾 Save Changes</button>
+      <button id="saveBtn"><i class="fas fa-save"></i> Save Changes</button>
     </div>
+
+    <!-- Task Cards -->
+    <div class="cards" id="cardsContainer"></div>
   </div>
 
   <script src="script.js"></script>
