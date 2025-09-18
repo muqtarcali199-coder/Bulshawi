@@ -1,61 +1,69 @@
 let tasks = [];
 
-// Load tasks from localStorage
+// Load saved tasks
 if(localStorage.getItem("tasks")) tasks = JSON.parse(localStorage.getItem("tasks"));
 
-// Add task (does NOT save automatically)
-function addTask() {
+const addBtn = document.getElementById("addBtn");
+const saveBtn = document.getElementById("saveBtn");
+
+// Add task (temporary until saved)
+addBtn.addEventListener("click", () => {
   const name = document.getElementById("taskName").value;
   const due = document.getElementById("taskDue").value;
-  const status = document.getElementById("taskStatus").value;
+  const priority = document.getElementById("taskPriority").value;
   const notes = document.getElementById("taskNotes").value;
 
-  if(!name || !due) { 
-    alert("Please enter task name and due date!"); 
-    return; 
-  }
+  if(!name || !due) return alert("Please enter task name and due date!");
 
-  tasks.push({name, due, status, notes});
+  tasks.push({name,due,priority,notes,completed:false});
   clearInputs();
   renderTasks();
-}
+});
 
-// Save manually
-function saveTasks() {
+// Save all tasks to localStorage
+saveBtn.addEventListener("click", () => {
   localStorage.setItem("tasks", JSON.stringify(tasks));
-  alert("Tasks saved successfully!");
-}
+  alert("Tasks saved!");
+});
 
 // Clear input fields
 function clearInputs() {
   document.getElementById("taskName").value = "";
   document.getElementById("taskDue").value = "";
-  document.getElementById("taskStatus").value = "Pending";
+  document.getElementById("taskPriority").value = "Medium";
   document.getElementById("taskNotes").value = "";
 }
 
-// Render all tasks
+// Render tasks
 function renderTasks() {
   const container = document.getElementById("cardsContainer");
   container.innerHTML = "";
 
-  tasks.forEach((task,index)=>{
+  tasks.forEach((task,index) => {
     const card = document.createElement("div");
-    card.className = "card " + task.status.toLowerCase().replace(" ", "-");
-
+    card.className = `card ${task.priority.toLowerCase()} ${task.completed ? "completed" : ""}`;
+    
     card.innerHTML = `
       <h3>${task.name}</h3>
-      <p>Status: ${task.status}</p>
-      <p>Deadline: ${task.due}</p>
+      <p>Due: ${task.due}</p>
+      <p>Priority: ${task.priority}</p>
       <p>${task.notes}</p>
+      <button onclick="toggleDone(${index})">${task.completed ? "Undo" : "Mark Done"}</button>
       <button onclick="deleteTask(${index})">Delete</button>
     `;
+
     container.appendChild(card);
   });
 }
 
+// Toggle completed status
+function toggleDone(index) {
+  tasks[index].completed = !tasks[index].completed;
+  renderTasks();
+}
+
 // Delete task
-function deleteTask(index){
+function deleteTask(index) {
   if(confirm("Are you sure you want to delete this task?")){
     tasks.splice(index,1);
     renderTasks();
