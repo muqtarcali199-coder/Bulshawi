@@ -28,6 +28,37 @@
     <div class="save-container">
       <button id="saveBtn"><i class="fas fa-save"></i> Save Changes</button>
     </div>
+    <!-- Reports Section -->
+<div class="reports">
+  <h2><i class="fas fa-chart-line"></i> Task Reports</h2>
+  
+  <div class="report-filters">
+    <button onclick="generateReport('daily')">Daily</button>
+    <button onclick="generateReport('weekly')">Weekly</button>
+    <button onclick="generateReport('monthly')">Monthly</button>
+    
+    <!-- Custom Date Range -->
+    <div class="date-range">
+      <input type="date" id="startDate">
+      <input type="date" id="endDate">
+      <button onclick="generateReport('custom')">Custom</button>
+    </div>
+  </div>
+
+  <!-- Report Output -->
+  <div id="reportContainer" class="report-output"></div>
+</div>
+
+<!-- Report Filter -->
+<div class="report-filter">
+  <label for="filterSelect"><i class="fas fa-filter"></i> View:</label>
+  <select id="filterSelect">
+    <option value="all">All Tasks</option>
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+  </select>
+</div>
 
     <!-- Task Cards -->
     <div class="cards" id="cardsContainer"></div>

@@ -104,3 +104,110 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   .add-task button, .save-container button{ width:100%; }
   h1{ font-size:1.5rem; }
 }
+/* Report Filter */
+.report-filter {
+  margin: 20px 0;
+  text-align: right;
+  color: white;
+}
+.report-filter label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+.report-filter select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+}
+/* Reports Section */
+.reports {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.reports h2 {
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.report-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.report-filters button {
+  background: #673ab7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.report-filters button:hover {
+  background: #512da8;
+  transform: scale(1.05);
+}
+
+.date-range {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.date-range input {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+.report-output {
+  background: rgba(255,255,255,0.2);
+  padding: 15px;
+  border-radius: 12px;
+  color: #000;
+}
+.report-output ul {
+  list-style: none;
+  padding-left: 0;
+}
+.report-output li {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.report-output li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.report-output li strong {
+  color: #222;
+}
+
+.report-output li.overdue {
+  background: rgba(255, 0, 0, 0.15);
+  border-left: 4px solid red;
+}
+.summary-bar {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: #222;
+}
+.summary-bar p {
+  margin: 0;
+}
