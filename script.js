@@ -226,3 +226,6 @@ function deleteTask(index){
 
 // Initial render
 renderTasks();
+if(localStorage.getItem("loggedIn") !== "true"){
+    window.location.href = "index.html";
+}

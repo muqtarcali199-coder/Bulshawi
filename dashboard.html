@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Time Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <h1>📊 Time Management Dashboard</h1>
+      <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+
+    <!-- Add Task Form -->
+    <div class="add-task">
+      <input type="text" id="taskName" placeholder="Task name">
+      <input type="date" id="taskDue">
+      <select id="taskPriority">
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+      </select>
+      <textarea id="taskNotes" placeholder="Task notes (optional)"></textarea>
+      <button id="addBtn"><i class="fas fa-plus"></i> Add Task</button>
+    </div>
+
+    <!-- Save Button -->
+    <div class="save-container">
+      <button id="saveBtn"><i class="fas fa-save"></i> Save Changes</button>
+    </div>
+
+    <!-- Reports Section -->
+    <div class="reports">
+      <h2><i class="fas fa-chart-line"></i> Task Reports</h2>
+      <div class="report-filters">
+        <button onclick="generateReport('daily')">Daily</button>
+        <button onclick="generateReport('weekly')">Weekly</button>
+        <button onclick="generateReport('monthly')">Monthly</button>
+        <div class="date-range">
+          <input type="date" id="startDate">
+          <input type="date" id="endDate">
+          <button onclick="generateReport('custom')">Custom</button>
+        </div>
+      </div>
+      <div id="reportContainer" class="report-output"></div>
+    </div>
+
+    <!-- Report Filter -->
+    <div class="report-filter">
+      <label for="filterSelect"><i class="fas fa-filter"></i> View:</label>
+      <select id="filterSelect">
+        <option value="all">All Tasks</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+    </div>
+
+    <!-- Task Cards -->
+    <div class="cards" id="cardsContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Redirect to login if not logged in
+    if(localStorage.getItem("loggedIn") !== "true"){
+      window.location.href = "index.html";
+    }
+
+    // Logout
+    function logout(){
+      localStorage.removeItem("loggedIn");
+      window.location.href = "logout.html";
+    }
+  </script>
+</body>
+</html>

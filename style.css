@@ -104,6 +104,7 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   .add-task button, .save-container button{ width:100%; }
   h1{ font-size:1.5rem; }
 }
+
 /* Report Filter */
 .report-filter {
   margin: 20px 0;
@@ -121,6 +122,7 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   background: rgba(255,255,255,0.9);
   cursor: pointer;
 }
+
 /* Reports Section */
 .reports {
   background: rgba(255, 255, 255, 0.15);
@@ -129,13 +131,11 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   margin-top: 30px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-
 .reports h2 {
   color: #fff;
   margin-bottom: 15px;
   text-align: center;
 }
-
 .report-filters {
   display: flex;
   flex-wrap: wrap;
@@ -143,7 +143,6 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   justify-content: center;
   margin-bottom: 20px;
 }
-
 .report-filters button {
   background: #673ab7;
   color: white;
@@ -157,19 +156,16 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   background: #512da8;
   transform: scale(1.05);
 }
-
 .date-range {
   display: flex;
   gap: 10px;
   align-items: center;
 }
-
 .date-range input {
   padding: 8px;
   border-radius: 8px;
   border: none;
 }
-
 .report-output {
   background: rgba(255,255,255,0.2);
   padding: 15px;
@@ -181,21 +177,14 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   padding-left: 0;
 }
 .report-output li {
-  margin-bottom: 8px;
-  padding: 8px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-.report-output li {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.3);
 }
-
 .report-output li strong {
   color: #222;
 }
-
 .report-output li.overdue {
   background: rgba(255, 0, 0, 0.15);
   border-left: 4px solid red;
@@ -208,6 +197,37 @@ h1 { text-align:center; color:#fff; margin-bottom:25px; text-shadow: 2px 2px 5px
   font-weight: bold;
   color: #222;
 }
-.summary-bar p {
-  margin: 0;
+.summary-bar p { margin: 0; }
+
+/* Login Page */
+.login-container {
+  max-width: 350px;
+  margin: 100px auto;
+  background: rgba(255,255,255,0.2);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
 }
+.login-container h2 { margin-bottom: 20px; color:white; }
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  border:none;
+  border-radius: 12px;
+  background: #4CAF50;
+  color: white;
+  cursor:pointer;
+  font-weight: bold;
+  transition:0.3s;
+}
+.login-container button:hover { background: #45a049; }
+.login-container .error { color: red; margin-top: 10px; }
